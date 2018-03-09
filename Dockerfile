@@ -10,13 +10,13 @@ ENV PROJECT_PATH=/usr/src/app/
 WORKDIR ${PROJECT_PATH}
 
 # Install dependencies
-COPY package.json package-lock.json yarn.lock ${PROJECT_PATH}
+COPY package.json yarn.lock ${PROJECT_PATH}
 RUN yarn
 
 # Build project
 COPY . ${PROJECT_PATH}
 
-# Create credentials file and sync
+# Compile project and clean up vendors
 RUN make compile
 
-CMD ["/bin/sh", "-c", "npm run start"]
+CMD make serve NODE_ENV='production'
