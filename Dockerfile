@@ -17,8 +17,8 @@ RUN yarn
 COPY . ${PROJECT_PATH}
 
 # Compile project and clean up vendors
-RUN make compile &&
-    tar czvf node_modules.tar.gz node_modules &&
+RUN make compile && \
+    tar czvf node_modules.tar.gz node_modules && \
     rm -rf node_modules
 
 CMD make serve NODE_ENV='production'
