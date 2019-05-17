@@ -1,4 +1,4 @@
-FROM node:8.9.3 as build
+FROM node:12.2.0 as build
 
 ENV PROJECT_PATH=/usr/src/app/
 
@@ -16,7 +16,7 @@ RUN make compile && \
     tar czf node_modules.tar.gz node_modules && \
     rm -rf node_modules
 
-FROM node:8.9.3
+FROM node:12.2.0
 
 ARG PROJECT_BUILD
 ARG PROJECT_NAME
