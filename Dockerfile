@@ -33,7 +33,7 @@ COPY --from=build ${PROJECT_PATH} ${PROJECT_PATH}
 RUN curl -O https://s3-eu-west-1.amazonaws.com/filtered-sec-public/secretsmanagement/v0.1/ssm-entrypoint.sh && \
     chmod +x ./ssm-entrypoint.sh
 
-CMD ["./ssm-entrypoint.sh", "/bin/sh", "-c", "make", "serve", "NODE_ENV=production"]
+CMD ["./ssm-entrypoint.sh", "/bin/sh", "-c", "make serve NODE_ENV=production"]
 
 
 #CMD ["make", "serve", "NODE_ENV='production'"]
